@@ -1,0 +1,36 @@
+**node_modules**
+
+# Ignore Directories recursively
+
+*~
+*.settings/
+*logs/
+*target/
+*.idea/
+**/.idea/
+*.metadata/
+*RemoteSystemsTempFiles/
+*bin/
+*logs/
+*.recommenders/
+*.sonarlint/
+*backup/
+*classes/
+*Servers/
+
+
+# Ignore Files recursively
+
+*.log
+*.project
+*.classpath
+*.factorypath
+*.DS_Store
+*.swp
+*.iml
+*.ipr
+*.iws
+*.toDelete
+*.springBeans
+/.metadata/
+*.class
