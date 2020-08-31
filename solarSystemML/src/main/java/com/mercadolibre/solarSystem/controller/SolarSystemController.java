@@ -48,10 +48,10 @@ public class SolarSystemController {
 		return day;
 	}
 
-	@GetMapping("/")
-	public String root() {
-		return "Bienvenido al API del Sistema Solar:\n" +
-		          "- Para correr la simulación => GET -> /simular \n" +
-		            "-Para consultar el clima en un dia => GET -> /clima?dia=45";
-	}
+//	@GetMapping("/")
+//	public String root() {
+//		return "Bienvenido al API del Sistema Solar:\n" +
+//		          "- Para correr la simulación => GET -> /simular \n" +
+//		            "-Para consultar el clima en un dia => GET -> /clima?dia=45";
+//	}
 }
