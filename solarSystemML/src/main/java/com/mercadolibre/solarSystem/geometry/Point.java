@@ -1,4 +1,4 @@
-package solarSystemML.geometry;
+package com.mercadolibre.solarSystem.geometry;
 
 public class Point {
 

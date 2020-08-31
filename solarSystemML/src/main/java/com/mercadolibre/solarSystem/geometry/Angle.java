@@ -1,4 +1,4 @@
-package solarSystemML.geometry;
+package com.mercadolibre.solarSystem.geometry;
 
 public class Angle {
 
@@ -73,10 +73,15 @@ public class Angle {
 	    *  @param distance number representing the distance to Point(0, 0)
 	    */
 	public Point toPoint(Double distance) {
-		Double x = Math.cos(Math.toRadians(this.getDegree()) * distance);
-		Double y = Math.sin(Math.toRadians(this.getDegree()) * distance);
+		Double x = Math.cos(Math.toRadians(this.getDegree())) * distance;
 		
-		return new Point(x,y);
+		double roundOffX = Math.round(x * 100.0) / 100.0;
+		
+		Double y = Math.sin(Math.toRadians(this.getDegree())) * distance;
+		
+		double roundOffY = Math.round(y * 100.0) / 100.0;
+		
+		return new Point(roundOffX,roundOffY);
 	}
 
 	

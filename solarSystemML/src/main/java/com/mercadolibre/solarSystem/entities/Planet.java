@@ -1,7 +1,7 @@
-package solarSystemML.entities;
+package com.mercadolibre.solarSystem.entities;
 
-import solarSystemML.geometry.Angle;
-import solarSystemML.geometry.Point;
+import com.mercadolibre.solarSystem.geometry.Angle;
+import com.mercadolibre.solarSystem.geometry.Point;
 
 public class Planet {
 
@@ -35,6 +35,8 @@ public class Planet {
 		}else {
 			setAngle(getAngle().add(getAngularSpeed().multiply(days)));
 		}
+		
+		setPosition(getAngle().toPoint(getDistance()));
 	}
 	
 

@@ -1,4 +1,4 @@
-package solarSystemML.geometry;
+package com.mercadolibre.solarSystem.geometry;
 
 public class Line {
 
@@ -50,6 +50,14 @@ public class Line {
 	  *
 	  */
 	public boolean isInLine(Point p) {
+		
+		// Check added for cases where the alignment occurs in one of the axis. Math logic failing due to 0 value in operations
+		if(p.getX().equals(point1.getX()) && p.getX().equals(point2.getX())) {
+			return true;
+		}
+		if(p.getY().equals(point1.getY()) && p.getY().equals(point2.getY())) {
+			return true;
+		}
 //		(x-x1)/(x2-x1) = (y-y1)/(y2-y1)
 		return (p.getX() - point1.getX()) / (point2.getX() - point1.getX()) == (p.getY()-point1.getY()) / (point2.getY()-point1.getY());
 
