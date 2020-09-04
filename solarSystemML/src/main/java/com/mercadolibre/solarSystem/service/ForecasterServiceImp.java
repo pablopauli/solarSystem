@@ -5,7 +5,9 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mercadolibre.solarSystem.entities.DayStatus;
 import com.mercadolibre.solarSystem.entities.SolarSystem;
+import com.mercadolibre.solarSystem.repository.DayStatusRepository;
 
 
 @Service
@@ -14,6 +16,10 @@ public class ForecasterServiceImp implements ForecasterService{
 	
 	@Autowired
 	private WeatherConditions weatherConditions;
+	
+	@Autowired
+	private DayStatusRepository dayStatusRepository;
+	
 	
 	/** Executes forecast for a solar system
 	  *
@@ -31,7 +37,10 @@ public class ForecasterServiceImp implements ForecasterService{
 		int maxRainyDay = 0;
 		Double maxTrianglePerimeter = -1.0;
 		
-		TreeMap<Integer, String> daysStatus = new TreeMap<Integer, String>();
+		//delete any old data before simulation
+		dayStatusRepository.deleteAll();
+		
+		DayStatus dayStatus;
 		
 		
 		for (int i = 0; i < days; i++) {
@@ -39,12 +48,12 @@ public class ForecasterServiceImp implements ForecasterService{
 			if(weatherConditions.isOptimum(s)) {
 				optimumDays++;
 				
-				daysStatus.put(i, "Optimum day");
+				dayStatus = new DayStatus(i, "Optimum day");
 			}else if(weatherConditions.isDrought(s)) {
 				
 				droughtDays++;
 				
-				daysStatus.put(i, "Drought day");
+				dayStatus = new DayStatus(i, "Drought day");
 			}else if(weatherConditions.isRainy(s)) {
 				rainyDays++;
 				
@@ -55,10 +64,12 @@ public class ForecasterServiceImp implements ForecasterService{
 					maxRainyDay = i;
 				}
 				
-				daysStatus.put(i, "Rainy day");
+				dayStatus = new DayStatus(i, "Rainy day");
 			}else {
-				daysStatus.put(i, "Normal day");
+				dayStatus = new DayStatus(i, "Normal day");
 			}
+			
+			dayStatusRepository.save(dayStatus);
 			s.moveXDays(1);
 		}
 		
@@ -68,6 +79,11 @@ public class ForecasterServiceImp implements ForecasterService{
 		System.out.println("Drought days: " + droughtDays);
 		System.out.println("maxRainy day: " + maxRainyDay + " with perimeter: " + maxTrianglePerimeter);
 		
+	}
+	
+	
+	public DayStatus getWeather(long day) {
+		return dayStatusRepository.findById(day).get();
 	}
 	
 
