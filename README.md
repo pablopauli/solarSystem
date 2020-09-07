@@ -41,3 +41,6 @@ Para poder utilizar el sistema como un servicio a las otras civilizaciones, los 
 
 ## Tecnologías utilizadas
 
+* [JAVA](https://www.java.com/)
+* [Spring boot](https://spring.io/projects/spring-boot)
+* [PostgreSQL](https://www.postgresql.org/)
