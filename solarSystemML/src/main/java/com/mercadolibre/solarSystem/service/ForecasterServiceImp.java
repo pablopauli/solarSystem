@@ -48,12 +48,12 @@ public class ForecasterServiceImp implements ForecasterService{
 			if(weatherConditions.isOptimum(s)) {
 				optimumDays++;
 				
-				dayStatus = new DayStatus(i, "Optimum day");
+				dayStatus = new DayStatus(i, "optimo");
 			}else if(weatherConditions.isDrought(s)) {
 				
 				droughtDays++;
 				
-				dayStatus = new DayStatus(i, "Drought day");
+				dayStatus = new DayStatus(i, "sequia");
 			}else if(weatherConditions.isRainy(s)) {
 				rainyDays++;
 				
@@ -64,9 +64,9 @@ public class ForecasterServiceImp implements ForecasterService{
 					maxRainyDay = i;
 				}
 				
-				dayStatus = new DayStatus(i, "Rainy day");
+				dayStatus = new DayStatus(i, "lluvia");
 			}else {
-				dayStatus = new DayStatus(i, "Normal day");
+				dayStatus = new DayStatus(i, "normal");
 			}
 			
 			dayStatusRepository.save(dayStatus);
