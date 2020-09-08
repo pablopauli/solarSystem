@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mercadolibre.solarSystem.entities.DayStatus;
 import com.mercadolibre.solarSystem.entities.Planet;
+import com.mercadolibre.solarSystem.entities.SimulationResult;
 import com.mercadolibre.solarSystem.entities.SolarSystem;
 import com.mercadolibre.solarSystem.geometry.Angle;
 import com.mercadolibre.solarSystem.geometry.Point;
@@ -47,7 +48,15 @@ public class SolarSystemController {
 		
 		
 		//que devolver aca?
-		return "funcionando";
+		return "Simulacion terminada";
+	}
+	
+	@GetMapping(value = "/resultado", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SimulationResult> forecastResult() {
+		
+		SimulationResult simResult = forecasterService.getSimulationResult();
+		
+		return ResponseEntity.ok().body(simResult);
 	}
 	
 	

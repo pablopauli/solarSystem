@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mercadolibre.solarSystem.entities.DayStatus;
+import com.mercadolibre.solarSystem.entities.SimulationResult;
 import com.mercadolibre.solarSystem.entities.SolarSystem;
 import com.mercadolibre.solarSystem.repository.DayStatusRepository;
+import com.mercadolibre.solarSystem.repository.SimulationResultRepository;
 
 
 @Service
@@ -19,6 +21,9 @@ public class ForecasterServiceImp implements ForecasterService{
 	
 	@Autowired
 	private DayStatusRepository dayStatusRepository;
+	
+	@Autowired
+	private SimulationResultRepository simulationResultRepository;
 	
 	
 	/** Executes forecast for a solar system
@@ -39,6 +44,7 @@ public class ForecasterServiceImp implements ForecasterService{
 		
 		//delete any old data before simulation
 		dayStatusRepository.deleteAll();
+		simulationResultRepository.deleteAll();
 		
 		DayStatus dayStatus;
 		
@@ -79,11 +85,20 @@ public class ForecasterServiceImp implements ForecasterService{
 		System.out.println("Drought days: " + droughtDays);
 		System.out.println("maxRainy day: " + maxRainyDay + " with perimeter: " + maxTrianglePerimeter);
 		
+		SimulationResult simResult = new SimulationResult(days, optimumDays, rainyDays, droughtDays, maxRainyDay, maxTrianglePerimeter);
+		
+		simulationResultRepository.save(simResult);
+		
 	}
 	
 	
 	public DayStatus getWeather(long day) {
 		return dayStatusRepository.findById(day).get();
+	}
+
+
+	public SimulationResult getSimulationResult() {
+		return simulationResultRepository.findAll().get(0);
 	}
 	
 
