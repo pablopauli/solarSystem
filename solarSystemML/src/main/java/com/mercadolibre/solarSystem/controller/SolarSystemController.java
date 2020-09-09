@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,7 @@ public class SolarSystemController {
 	
 	
 	
-	@GetMapping("/simular")
+	@PostMapping("/simular")
 	public String simulateForecast() {
 
 		Point p1 = new Point(0.0, 500.0);
@@ -47,12 +48,11 @@ public class SolarSystemController {
 		forecasterService.forecast(10*365, s);
 		
 		
-		//que devolver aca?
 		return "Simulacion terminada";
 	}
 	
 	@GetMapping(value = "/resultado", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<SimulationResult> forecastResult() {
+	public ResponseEntity<SimulationResult> getForecastResult() {
 		
 		SimulationResult simResult = forecasterService.getSimulationResult();
 		
