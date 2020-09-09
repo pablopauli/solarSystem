@@ -1,4 +1,4 @@
-package com.mercadolibre.solarSystem.geometry;
+package com.mercadolibre.solarSystem.simulation;
 
 public class Angle {
 
@@ -23,10 +23,11 @@ public class Angle {
 
 	/** Adding angles.
     *
-    *  @param angle another Angle
+    *  @param angle another Angle to add
+    *  @return a new Angle
     */
-	public Angle add(Angle a) {
-		Double result = this.getDegree() + a.getDegree();
+	public Angle add(Angle angle) {
+		Double result = this.getDegree() + angle.getDegree();
 		if(result < 360) {
 			return new Angle(result);
 		}
@@ -38,10 +39,11 @@ public class Angle {
 
 	  /** Subtracting angles.
 	    *
-	    *  @param angle another Angle
+	    *  @param angle another Angle to subtract
+	    *  @return a new Angle
 	    */
-	public Angle subtract(Angle a) {
-		Double result = this.getDegree() - a.getDegree();
+	public Angle subtract(Angle angle) {
+		Double result = this.getDegree() - angle.getDegree();
 		if(result >= 0) {
 			return new Angle(result);
 		}
@@ -50,9 +52,10 @@ public class Angle {
 	}
 	
 
-	  /** Multiplying the angle .
+	  /** Multiplying the angle n times.
 	    *
 	    *  @param n a number
+	    *  @return a new Angle
 	    */
 	public Angle multiply(int n) {
 		return new Angle(this.getDegree() * n % 360);
@@ -62,15 +65,17 @@ public class Angle {
 	  /** Equals method.
 	    *
 	    *  @param angle another Angle
+	    *  @return boolean true if equals, false if not
 	    */
-	public boolean equals(Angle a) {
-		return this.getDegree() == a.getDegree();
+	public boolean equals(Angle angle) {
+		return this.getDegree() == angle.getDegree();
 	}
 	
 
 	  /** Return a Point depending of its distance to Point(0,0) and the angle.
 	    *
 	    *  @param distance number representing the distance to Point(0, 0)
+	    *  @return a new Point
 	    */
 	public Point toPoint(Double distance) {
 		Double x = Math.cos(Math.toRadians(this.getDegree())) * distance;

@@ -1,7 +1,4 @@
-package com.mercadolibre.solarSystem.entities;
-
-import com.mercadolibre.solarSystem.geometry.Angle;
-import com.mercadolibre.solarSystem.geometry.Point;
+package com.mercadolibre.solarSystem.simulation;
 
 public class Planet {
 
@@ -14,7 +11,7 @@ public class Planet {
 	
 	/** 
 	  *
-	  *  @constructor create a new Planet.
+	  *  create a new Planet.
 	  *  @param position a Point(x,y), representing the position of the object in the space
 	  *  @param distance a number representing the distance of the planet to the sun.
 	  *  @param angle an Angle(z) representing the angle formed with the x-axis.

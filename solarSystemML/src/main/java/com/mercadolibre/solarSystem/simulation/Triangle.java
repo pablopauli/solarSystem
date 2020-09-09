@@ -1,4 +1,4 @@
-package com.mercadolibre.solarSystem.geometry;
+package com.mercadolibre.solarSystem.simulation;
 
 public class Triangle {
 
@@ -7,9 +7,8 @@ public class Triangle {
 	private Point p3;
 	
 	
-	/** A Triangle on the space.
+	/** Creates a Triangle using three Points on the space as vertices.
 	*
-	*  @constructor create a new Triangle using three Points on the space as vertices.
 	*  @param p1 point on the space.
 	*  @param p2 another point on the space.
 	*  @param p3 another point on the space.
@@ -72,14 +71,14 @@ public class Triangle {
 	
 	/** Checks if a Point is inside the triangle
 	  *
-	  *  @param point point on the space.
+	  *  @param point a Point on the space.
 	  *  @return true if it is inside the triangle, false it is not
 	  *
 	  */
-	public boolean isInTriangle(Point p) {
-		Triangle t1 = new Triangle(p1, p2, p);
-		Triangle t2 = new Triangle(p2, p3, p);
-		Triangle t3 = new Triangle(p3, p1, p);
+	public boolean isInTriangle(Point point) {
+		Triangle t1 = new Triangle(p1, p2, point);
+		Triangle t2 = new Triangle(p2, p3, point);
+		Triangle t3 = new Triangle(p3, p1, point);
 		
 		boolean negative;
 		boolean positive;

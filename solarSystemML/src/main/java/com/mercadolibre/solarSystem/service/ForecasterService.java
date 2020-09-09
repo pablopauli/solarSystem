@@ -2,7 +2,7 @@ package com.mercadolibre.solarSystem.service;
 
 import com.mercadolibre.solarSystem.entities.DayStatus;
 import com.mercadolibre.solarSystem.entities.SimulationResult;
-import com.mercadolibre.solarSystem.entities.SolarSystem;
+import com.mercadolibre.solarSystem.simulation.SolarSystem;
 
 public interface ForecasterService {
 

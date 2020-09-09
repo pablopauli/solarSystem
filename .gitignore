@@ -34,3 +34,4 @@
 *.springBeans
 /.metadata/
 *.class
+/solarSystemML/settings.xml

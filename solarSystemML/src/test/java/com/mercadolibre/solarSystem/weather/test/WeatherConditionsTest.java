@@ -8,10 +8,10 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.mercadolibre.solarSystem.entities.Planet;
-import com.mercadolibre.solarSystem.entities.SolarSystem;
-import com.mercadolibre.solarSystem.geometry.Point;
 import com.mercadolibre.solarSystem.service.WeatherConditions;
+import com.mercadolibre.solarSystem.simulation.Planet;
+import com.mercadolibre.solarSystem.simulation.Point;
+import com.mercadolibre.solarSystem.simulation.SolarSystem;
 
 public class WeatherConditionsTest {
 
@@ -103,14 +103,11 @@ public class WeatherConditionsTest {
 		Planet planet2 = new Planet(p2, null, null, null, true);
 		Planet planet3 = new Planet(p3, null, null, null, true);
 		
-		List<Planet> planets = new ArrayList<Planet>();
-		planets.add(planet1);
-		planets.add(planet2);
-		planets.add(planet3);
-		SolarSystem s = new SolarSystem(planets );
+		
+		SolarSystem solarSystem = new SolarSystem(planet1, planet2, planet3);
 		
 		
 		
-		return s;
+		return solarSystem;
 	}
 }

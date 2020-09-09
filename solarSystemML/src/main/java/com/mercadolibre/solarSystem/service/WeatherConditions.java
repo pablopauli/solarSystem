@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.mercadolibre.solarSystem.entities.Planet;
-import com.mercadolibre.solarSystem.entities.SolarSystem;
-import com.mercadolibre.solarSystem.geometry.Line;
-import com.mercadolibre.solarSystem.geometry.Point;
-import com.mercadolibre.solarSystem.geometry.Triangle;
+import com.mercadolibre.solarSystem.simulation.Line;
+import com.mercadolibre.solarSystem.simulation.Planet;
+import com.mercadolibre.solarSystem.simulation.Point;
+import com.mercadolibre.solarSystem.simulation.SolarSystem;
+import com.mercadolibre.solarSystem.simulation.Triangle;
 
 @Service
 public class WeatherConditions {
@@ -22,28 +22,19 @@ public class WeatherConditions {
     *  @return true if it is drought, false it is not
     *
     */
-	public boolean isDrought(SolarSystem s) {
+	public boolean isDrought(SolarSystem solarSystem) {
 		
-		List<Planet> planets = s.getPlanets();
+		Point position1 = solarSystem.getFerengi().getPosition();
+		Point position2 = solarSystem.getBetasoide().getPosition();
+		Point position3 = solarSystem.getVulcano().getPosition();
 		
-		if(planets.size() == 3) {
+		Point sunPosition = new Point(0.0,0.0);
 		
-			Point position1 = planets.get(0).getPosition();
-			Point position2 = planets.get(1).getPosition();
-			Point position3 = planets.get(2).getPosition();
+		Line oneToTwoLine = new Line(position1, position2);
 		
-			Point sunPosition = new Point(0.0,0.0);
-		
-			Line oneToTwoLine = new Line(position1, position2);
-		
-			boolean check1 = oneToTwoLine.isInLine(position3);
 			
-			boolean check2 = oneToTwoLine.isInLine(sunPosition);
-			
-			return check1 && check2;
-		}
+		return oneToTwoLine.isInLine(position3) && oneToTwoLine.isInLine(sunPosition);
 		
-		return false;
 	}
 	
 	 /** Checks if it a Rainy day in the SolarSystem
@@ -52,23 +43,19 @@ public class WeatherConditions {
     *  @return true if it is a rainy day, false it is not
     *
     */
-	public boolean isRainy(SolarSystem s) {
-		List<Planet> planets = s.getPlanets();
+	public boolean isRainy(SolarSystem solarSystem) {
+
 		
-		if(planets.size() == 3) {
-		
-			Point position1 = planets.get(0).getPosition();
-			Point position2 = planets.get(1).getPosition();
-			Point position3 = planets.get(2).getPosition();
+			Point position1 = solarSystem.getFerengi().getPosition();
+			Point position2 = solarSystem.getBetasoide().getPosition();
+			Point position3 = solarSystem.getVulcano().getPosition();
 			
 			Point sunPosition = new Point(0.0,0.0);
 			
 			Triangle planetsTriangle = new Triangle(position1, position2, position3);
 			
 			return planetsTriangle.isInTriangle(sunPosition);
-		}
-		
-		return false;
+
 	}
 	
 	/** Checks if it a Optimum day in the SolarSystem
@@ -78,26 +65,18 @@ public class WeatherConditions {
     *
     */
 	
-	public boolean isOptimum(SolarSystem s) {
+	public boolean isOptimum(SolarSystem solarSystem) {
 	
-		List<Planet> planets = s.getPlanets();
-		
-		if(planets.size() == 3) {
-		
-			Point position1 = planets.get(0).getPosition();
-			Point position2 = planets.get(1).getPosition();
-			Point position3 = planets.get(2).getPosition();
+
+			Point position1 = solarSystem.getFerengi().getPosition();
+			Point position2 = solarSystem.getBetasoide().getPosition();
+			Point position3 = solarSystem.getVulcano().getPosition();
 		
 			Point sunPosition = new Point(0.0,0.0);
 		
 			Line oneToTwoLine = new Line(position1, position2);
 		
 			return oneToTwoLine.isInLine(position3) && !oneToTwoLine.isInLine(sunPosition);
-		}
-		
-		
-		
-		return false;
 	}
 	
 	

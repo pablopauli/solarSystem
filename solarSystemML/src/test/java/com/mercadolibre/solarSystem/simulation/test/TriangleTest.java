@@ -1,12 +1,12 @@
-package com.mercadolibre.solarSystem.geometry.test;
+package com.mercadolibre.solarSystem.simulation.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.mercadolibre.solarSystem.geometry.Point;
-import com.mercadolibre.solarSystem.geometry.Triangle;
+import com.mercadolibre.solarSystem.simulation.Point;
+import com.mercadolibre.solarSystem.simulation.Triangle;
 
 public class TriangleTest {
 

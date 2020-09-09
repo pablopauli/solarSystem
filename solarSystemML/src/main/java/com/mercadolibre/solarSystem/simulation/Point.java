@@ -1,4 +1,4 @@
-package com.mercadolibre.solarSystem.geometry;
+package com.mercadolibre.solarSystem.simulation;
 
 public class Point {
 

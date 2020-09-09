@@ -1,13 +1,12 @@
-package com.mercadolibre.solarSystem.geometry;
+package com.mercadolibre.solarSystem.simulation;
 
 public class Line {
 
 	private Point point1;
 	private Point point2;
 	
-	/** A Line on the space.
+	/** A Line on the space using two Points.
 	*
-	*  @constructor create a new Line using two Points on the space.
 	*  @param p1 point on the space.
 	*  @param p2 another point on the space.
 	*/
@@ -45,21 +44,21 @@ public class Line {
 
 	/** Checks if a Point is in the line
 	  *
-	  *  @param point p on the space.
+	  *  @param point a Point on the space.
 	  *  @return true if it is part of line, false it is not
 	  *
 	  */
-	public boolean isInLine(Point p) {
+	public boolean isInLine(Point point) {
 		
 		// Check added for cases where the alignment occurs in one of the axis. Math logic failing due to 0 value in operations
-		if(p.getX().equals(point1.getX()) && p.getX().equals(point2.getX())) {
+		if(point.getX().equals(point1.getX()) && point.getX().equals(point2.getX())) {
 			return true;
 		}
-		if(p.getY().equals(point1.getY()) && p.getY().equals(point2.getY())) {
+		if(point.getY().equals(point1.getY()) && point.getY().equals(point2.getY())) {
 			return true;
 		}
 //		(x-x1)/(x2-x1) = (y-y1)/(y2-y1)
-		return (p.getX() - point1.getX()) / (point2.getX() - point1.getX()) == (p.getY()-point1.getY()) / (point2.getY()-point1.getY());
+		return (point.getX() - point1.getX()) / (point2.getX() - point1.getX()) == (point.getY()-point1.getY()) / (point2.getY()-point1.getY());
 
 	}
 

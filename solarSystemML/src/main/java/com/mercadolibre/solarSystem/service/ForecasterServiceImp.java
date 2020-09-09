@@ -1,15 +1,14 @@
 package com.mercadolibre.solarSystem.service;
 
-import java.util.TreeMap;
-
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mercadolibre.solarSystem.entities.DayStatus;
 import com.mercadolibre.solarSystem.entities.SimulationResult;
-import com.mercadolibre.solarSystem.entities.SolarSystem;
 import com.mercadolibre.solarSystem.repository.DayStatusRepository;
 import com.mercadolibre.solarSystem.repository.SimulationResultRepository;
+import com.mercadolibre.solarSystem.simulation.SolarSystem;
 
 
 @Service
@@ -42,9 +41,8 @@ public class ForecasterServiceImp implements ForecasterService{
 		int maxRainyDay = 0;
 		Double maxTrianglePerimeter = -1.0;
 		
-		//delete any old data before simulation
-		dayStatusRepository.deleteAll();
-		simulationResultRepository.deleteAll();
+		
+		ArrayList<DayStatus> dayStatusList = new ArrayList<DayStatus>();
 		
 		DayStatus dayStatus;
 		
@@ -75,9 +73,12 @@ public class ForecasterServiceImp implements ForecasterService{
 				dayStatus = new DayStatus(i, "normal");
 			}
 			
-			dayStatusRepository.save(dayStatus);
+			dayStatusList.add(dayStatus);
 			s.moveXDays(1);
 		}
+		
+		
+		dayStatusRepository.saveAll(dayStatusList);
 		
 		System.out.println("Results for " + days + "days");
 		System.out.println("Optimum days: " + optimumDays);

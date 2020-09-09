@@ -1,12 +1,12 @@
-package com.mercadolibre.solarSystem.geometry.test;
+package com.mercadolibre.solarSystem.simulation.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.mercadolibre.solarSystem.geometry.Line;
-import com.mercadolibre.solarSystem.geometry.Point;
+import com.mercadolibre.solarSystem.simulation.Line;
+import com.mercadolibre.solarSystem.simulation.Point;
 
 public class LineTest {
 
