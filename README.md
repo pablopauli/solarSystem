@@ -17,9 +17,6 @@ Cuando los tres planetas están alineados entre sí y a su vez alineados con r
 
 Las condiciones óptimas de presión y temperatura se dan cuando los tres planetas están alineados entre sí pero no están alineados con el sol.
 
-### A considerar
-* Se utilizó una presición de 2 decimales para realizar los cálculos.
-* La posición inicial de los planetas es alineados con el sol.
 
 ## Preguntas
 Realizar un programa informático para poder predecir en los próximos 10 años:
@@ -38,11 +35,32 @@ Para poder utilizar el sistema como un servicio a las otras civilizaciones, los 
 
 ## Respuesta
 
-API REST:
-http://solarsystem-env.eba-v92vtivz.us-east-2.elasticbeanstalk.com/
+### API hosteada en Amazon AWS usando Elastic Beanstalk
 
-## Tecnologías utilizadas
+- [Solar System API](http://solarsystem-env.eba-v92vtivz.us-east-2.elasticbeanstalk.com/swagger-ui.html).
+
+
+Metodos curl para ejecutar los metodos de la API:
+
+* Para generar la simulacion del sistema solar
+```
+curl -X POST "http://localhost:9090/simular" -H "accept: */*"
+```
+
+* Para obtener el resultado de la simulacion
+```
+curl -X GET "http://localhost:9090/resultado" -H "accept: application/json"
+```
+
+* Para obtener el clima de un dia especifico
+```
+curl -X GET "http://localhost:9090/clima?dia=2" -H "accept: application/json"
+```
+
+
+### Tecnologías utilizadas
 
 * [JAVA](https://www.java.com/)
 * [Spring boot](https://spring.io/projects/spring-boot)
+* [Maven](https://maven.apache.org/)
 * [PostgreSQL](https://www.postgresql.org/)
