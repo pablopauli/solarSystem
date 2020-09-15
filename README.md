@@ -44,17 +44,17 @@ Metodos curl para ejecutar los metodos de la API:
 
 * Para generar la simulacion del sistema solar
 ```
-curl -X POST "http://localhost:9090/simular" -H "accept: */*"
+curl -X POST "http://solarsystem-env.eba-v92vtivz.us-east-2.elasticbeanstalk.com/simular" -H "accept: */*"
 ```
 
 * Para obtener el resultado de la simulacion
 ```
-curl -X GET "http://localhost:9090/resultado" -H "accept: application/json"
+curl -X GET "http://solarsystem-env.eba-v92vtivz.us-east-2.elasticbeanstalk.com/resultado" -H "accept: application/json"
 ```
 
 * Para obtener el clima de un dia especifico
 ```
-curl -X GET "http://localhost:9090/clima?dia=2" -H "accept: application/json"
+curl -X GET "http://solarsystem-env.eba-v92vtivz.us-east-2.elasticbeanstalk.com/clima?dia=65" -H "accept: application/json"
 ```
 
 
