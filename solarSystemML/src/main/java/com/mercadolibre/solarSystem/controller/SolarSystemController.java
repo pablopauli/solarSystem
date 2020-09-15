@@ -63,7 +63,7 @@ public class SolarSystemController {
 	 * [200-OK] -- with the SimulationResult data in the response body.<br>
 	 * [404-NOT_FOUND] -- if no simulation was ran and no SimulationResult was found.<br>
 	 */
-	@ApiOperation(value = "Gets the Simulation result", response = SimulationResult.class)
+	@ApiOperation(value = "Gets the result of the Solar System simulation", response = SimulationResult.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "if a SimulationResult was found"),
             @ApiResponse(code = 404, message = "if no simulation was ran and no SimulationResult was found")
@@ -91,7 +91,7 @@ public class SolarSystemController {
 	 * [404-NOT_FOUND] -- if the simulation was not ran or the day entered is not in the simulated range.<br>
 	 * [400-BAD_REQUEST] -- if the day used as input is not an int.<br>
 	 */
-	@ApiOperation(value = "Gets the Simulation result", response = DayStatus.class)
+	@ApiOperation(value = "Checks the weather of an specific day", response = DayStatus.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "if a DayStatus was found"),
             @ApiResponse(code = 400, message = "if the day used as input is not an int"),

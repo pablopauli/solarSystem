@@ -9,8 +9,6 @@ import com.mercadolibre.solarSystem.simulation.Triangle;
 
 @Service
 public class WeatherConditions {
-
-
 	
 	
 	 /** Checks if it a Drought day in the SolarSystem
