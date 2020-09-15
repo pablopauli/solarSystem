@@ -1,0 +1,8 @@
+com.mercadolibre.solarSystem
+com.mercadolibre.solarSystem.configuration
+com.mercadolibre.solarSystem.controller
+com.mercadolibre.solarSystem.entities
+com.mercadolibre.solarSystem.repository
+com.mercadolibre.solarSystem.service
+com.mercadolibre.solarSystem.simulation
+com.mercadolibre.solarSystem.utils
