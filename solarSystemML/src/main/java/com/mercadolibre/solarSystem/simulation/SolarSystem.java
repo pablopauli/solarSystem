@@ -1,7 +1,5 @@
 package com.mercadolibre.solarSystem.simulation;
 
-import java.util.List;
-
 public class SolarSystem {
 	
 	
@@ -11,7 +9,7 @@ public class SolarSystem {
 
 	
 	
-	/** A Solar System to simulate.
+	/** A Solar System.
 	  *
 	  *  @param ferengi a Planet
 	  *  @param betasoide a Planet
@@ -24,6 +22,12 @@ public class SolarSystem {
 	}
 
 	
+	/** 
+	  *	Moves the planets in its orbit a quantity of days
+	  *
+	  *	@param days an int to specify the number of days to move the planets
+	  *  
+	  */
 	public void moveXDays(int days) {
 		ferengi.moveXDays(days);
 		betasoide.moveXDays(days);
@@ -31,13 +35,12 @@ public class SolarSystem {
 	}
 
 
-	public void resetSolarSystem() {
-		ferengi.resetPosition();
-		betasoide.resetPosition();
-		vulcano.resetPosition();
-	}
 	
-	
+	/** 
+	  *	Gets the perimeter of the Triangle form by the planets
+	  *  
+	  *  @return a Double with the value of the perimeter
+	  */
 	public Double getPlanetsTrianglePerimeter() {
 		
 		Double result = 0.0;
@@ -50,7 +53,10 @@ public class SolarSystem {
 		
 		result = planetsTriangle.perimeter();
 		
-		return result;
+		// rounded to 3 decimals units
+		double roundOffResult = Math.round(result * 1000.0) / 1000.0;
+		
+		return roundOffResult;
 	}
 
 

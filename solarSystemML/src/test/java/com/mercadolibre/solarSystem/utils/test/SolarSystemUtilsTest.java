@@ -16,7 +16,11 @@ public class SolarSystemUtilsTest {
 		
 		SolarSystem solarSystem = SolarSystemUtils.generateMainSolarSystem();
 		
+		SolarSystem solarSystem2 = SolarSystemUtils.generateMainSolarSystem();
 		
+		assertTrue(solarSystem.getFerengi().getDistance().equals(solarSystem2.getFerengi().getDistance()));
+		
+		assertTrue(solarSystem.getPlanetsTrianglePerimeter().equals(solarSystem2.getPlanetsTrianglePerimeter()));
 		
 	}
 }

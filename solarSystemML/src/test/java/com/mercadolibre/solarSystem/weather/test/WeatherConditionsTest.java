@@ -3,20 +3,19 @@ package com.mercadolibre.solarSystem.weather.test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.mercadolibre.solarSystem.service.WeatherConditions;
 import com.mercadolibre.solarSystem.simulation.Planet;
 import com.mercadolibre.solarSystem.simulation.Point;
 import com.mercadolibre.solarSystem.simulation.SolarSystem;
 
+
 public class WeatherConditionsTest {
 
-	@Autowired
-	private WeatherConditions weatherConditions;
+	
+	private WeatherConditions weatherConditions = new WeatherConditions();
+	
+
 	
 	@Test
 	public void isDroughtTest() {

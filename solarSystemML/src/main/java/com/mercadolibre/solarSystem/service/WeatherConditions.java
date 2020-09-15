@@ -1,11 +1,8 @@
 package com.mercadolibre.solarSystem.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.mercadolibre.solarSystem.simulation.Line;
-import com.mercadolibre.solarSystem.simulation.Planet;
 import com.mercadolibre.solarSystem.simulation.Point;
 import com.mercadolibre.solarSystem.simulation.SolarSystem;
 import com.mercadolibre.solarSystem.simulation.Triangle;

@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.mercadolibre.solarSystem.entities.DayStatus;
 
+
+/**
+ * The DayStatus Repository, managing all operations over the DayStatus entity
+ */
 @Repository
-public interface DayStatusRepository extends JpaRepository<DayStatus, Long>{
+public interface DayStatusRepository extends JpaRepository<DayStatus, Integer>{
 
 }

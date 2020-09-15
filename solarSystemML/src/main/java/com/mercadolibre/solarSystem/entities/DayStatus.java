@@ -11,7 +11,7 @@ public class DayStatus {
 
 	@Id
     @Column(name = "day")
-    public Long day;
+    public Integer day;
 
 
     @Column(name = "weather")
@@ -19,16 +19,16 @@ public class DayStatus {
     
     public DayStatus() {}
     
-    public DayStatus(long day, String weather) {
+    public DayStatus(int day, String weather) {
     	this.day = day;
     	this.weather = weather;
     }
 
-	public Long getDay() {
+	public Integer getDay() {
 		return day;
 	}
 
-	public void setDay(Long day) {
+	public void setDay(Integer day) {
 		this.day = day;
 	}
 

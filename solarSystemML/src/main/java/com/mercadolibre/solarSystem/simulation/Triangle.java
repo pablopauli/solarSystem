@@ -71,7 +71,7 @@ public class Triangle {
 	
 	/** Checks if a Point is inside the triangle
 	  *
-	  *  @param point a Point on the space.
+	  *  @param point a Point on space.
 	  *  @return true if it is inside the triangle, false it is not
 	  *
 	  */

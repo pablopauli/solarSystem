@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.mercadolibre.solarSystem.entities.SimulationResult;
 
+
+/**
+ * The SimulationResult Repository, managing all operations over the SimulationResult entity
+ */
 @Repository
-public interface SimulationResultRepository extends JpaRepository<SimulationResult, Long>{
+public interface SimulationResultRepository extends JpaRepository<SimulationResult, Integer>{
 
 }

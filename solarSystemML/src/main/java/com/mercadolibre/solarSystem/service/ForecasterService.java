@@ -6,25 +6,25 @@ import com.mercadolibre.solarSystem.simulation.SolarSystem;
 
 public interface ForecasterService {
 
-	/** Executes forecast for a solar system
+	/** Executes a forecast simulation for a solar system
 	  *
 	  *	 @param s a SolarSystem 
-	  *  @param days an int to indicate the number of days for executing the forecast
+	  *  @param days an int to indicate the number of days for executing the forecast simulation
 	  */
 	public void forecast(int days, SolarSystem s); 
 	
 	
 	/** Gets the DayStatus of an specific day
 	  *
-	  *	 @param day a long 
+	  *	 @param day an int 
 	  *  @return DayStatus corresponding to that day
 	  */
-	public DayStatus getWeather(long day);
+	public DayStatus getWeather(int day);
 	
 	
 	/** Gets the result of the simulation
 	  *
-	  *  @return a SimulationResult
+	  *  @return a SimulationResult of the forecast simulation
 	  */
 	public SimulationResult getSimulationResult();
 }

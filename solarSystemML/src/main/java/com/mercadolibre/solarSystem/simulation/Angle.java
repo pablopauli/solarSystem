@@ -24,7 +24,7 @@ public class Angle {
 	/** Adding angles.
     *
     *  @param angle another Angle to add
-    *  @return a new Angle
+    *  @return a new Angle with the result of operation
     */
 	public Angle add(Angle angle) {
 		Double result = this.getDegree() + angle.getDegree();
@@ -40,7 +40,7 @@ public class Angle {
 	  /** Subtracting angles.
 	    *
 	    *  @param angle another Angle to subtract
-	    *  @return a new Angle
+	    *  @return a new Angle with the result of operation
 	    */
 	public Angle subtract(Angle angle) {
 		Double result = this.getDegree() - angle.getDegree();
@@ -55,7 +55,7 @@ public class Angle {
 	  /** Multiplying the angle n times.
 	    *
 	    *  @param n a number
-	    *  @return a new Angle
+	    *  @return a new Angle with the result of operation
 	    */
 	public Angle multiply(int n) {
 		return new Angle(this.getDegree() * n % 360);
@@ -68,14 +68,14 @@ public class Angle {
 	    *  @return boolean true if equals, false if not
 	    */
 	public boolean equals(Angle angle) {
-		return this.getDegree() == angle.getDegree();
+		return this.getDegree().equals(angle.getDegree());
 	}
 	
 
 	  /** Return a Point depending of its distance to Point(0,0) and the angle.
 	    *
 	    *  @param distance number representing the distance to Point(0, 0)
-	    *  @return a new Point
+	    *  @return a new Point with the corresponding position
 	    */
 	public Point toPoint(Double distance) {
 		Double x = Math.cos(Math.toRadians(this.getDegree())) * distance;

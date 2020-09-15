@@ -26,6 +26,12 @@ public class Planet {
 		this.clockwiseRotation = clockwiseRotation;
 	}
 
+	/** 
+	  *	Moves the planet in its orbit a quantity of days
+	  *
+	  *	@param days an int to specify the number of days to move the planet
+	  *  
+	  */
 	public void moveXDays(int days) {
 		if(isClockwiseRotation()) {
 			setAngle(getAngle().subtract(getAngularSpeed().multiply(days)));
@@ -37,10 +43,6 @@ public class Planet {
 	}
 	
 
-	public void resetPosition() {
-		setAngle(new Angle(90.0));
-		setPosition(new Point(0.0, getDistance()));
-	}
 
 
 	public Point getPosition() {
