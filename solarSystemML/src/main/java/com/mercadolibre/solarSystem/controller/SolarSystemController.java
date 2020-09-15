@@ -41,7 +41,7 @@ public class SolarSystemController {
 	 * [200-OK] -- if the simulation was successful.<br>
 	 * 
 	 */
-	@ApiOperation(value = "Simulates a Solar System for 10 years and saves it in the database", response = SimulationResult.class)
+	@ApiOperation(value = "Simulates a Solar System for 10 years and saves it in the database", response = Void.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "if the simulation was successful."),
     	}
