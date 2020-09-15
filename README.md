@@ -64,3 +64,6 @@ curl -X GET "http://localhost:9090/clima?dia=2" -H "accept: application/json"
 * [Spring boot](https://spring.io/projects/spring-boot)
 * [Maven](https://maven.apache.org/)
 * [PostgreSQL](https://www.postgresql.org/)
+* [H2 database](https://www.h2database.com/)
+* [Swagger](https://swagger.io/)
+* [Lombok](https://projectlombok.org/)
